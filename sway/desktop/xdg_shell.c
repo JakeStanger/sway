@@ -428,16 +428,21 @@ static void handle_map(struct wl_listener *listener, void *data) {
 
 	bool csd = false;
 
-	if (view->xdg_decoration) {
-		enum wlr_xdg_toplevel_decoration_v1_mode mode =
-			view->xdg_decoration->wlr_xdg_decoration->requested_mode;
-		csd = mode == WLR_XDG_TOPLEVEL_DECORATION_V1_MODE_CLIENT_SIDE;
-	} else {
-		struct sway_server_decoration *deco =
-				decoration_from_surface(toplevel->base->surface);
-		csd = !deco || deco->wlr_server_decoration->mode ==
-			WLR_SERVER_DECORATION_MANAGER_MODE_CLIENT;
-	}
+//    struct sway_server_decoration *deco =
+//            decoration_from_surface(toplevel->base->surface);
+//    csd = !deco || deco->wlr_server_decoration->mode ==
+//                   WLR_SERVER_DECORATION_MANAGER_MODE_CLIENT;
+
+//	if (view->xdg_decoration) {
+//		enum wlr_xdg_toplevel_decoration_v1_mode mode =
+//			view->xdg_decoration->wlr_xdg_decoration->requested_mode;
+//		csd = mode == WLR_XDG_TOPLEVEL_DECORATION_V1_MODE_CLIENT_SIDE;
+//	} else {
+//		struct sway_server_decoration *deco =
+//				decoration_from_surface(toplevel->base->surface);
+//		csd = !deco || deco->wlr_server_decoration->mode ==
+//			WLR_SERVER_DECORATION_MANAGER_MODE_CLIENT;
+//	}
 
 	view_map(view, toplevel->base->surface,
 		toplevel->requested.fullscreen,

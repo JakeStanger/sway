@@ -32,10 +32,10 @@ static void xdg_decoration_handle_request_mode(struct wl_listener *listener,
 	bool floating;
 	if (view->container) {
 		floating = container_is_floating(view->container);
-		bool csd = false;
-		csd = client_mode ==
-			WLR_XDG_TOPLEVEL_DECORATION_V1_MODE_CLIENT_SIDE;
-		view_update_csd_from_client(view, csd);
+//		bool csd = false;
+//		csd = client_mode ==
+//			WLR_XDG_TOPLEVEL_DECORATION_V1_MODE_CLIENT_SIDE;
+//		view_update_csd_from_client(view, csd);
 		arrange_container(view->container);
 		transaction_commit_dirty();
 	} else {
